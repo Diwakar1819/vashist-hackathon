@@ -7,11 +7,6 @@ const keywordSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    messageId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Message",
-      required: true,
-    },
     createdAt: {
       type: Date,
       default: Date.now,
