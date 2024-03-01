@@ -2,7 +2,7 @@ import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import cors from 'cors'
+import cors from "cors";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -12,16 +12,14 @@ import keywordsRoutes from "./routes/keywords.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import { app, server } from "./socket/socket.js";
 
-
 const __dirname = path.resolve();
 
 dotenv.config();
-const PORT =5000 ||  process.env.PORT;
-
+const PORT = 5000 || process.env.PORT;
 
 app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
 app.use(cookieParser());
-app.use(cors({}))
+app.use(cors({}));
 app.get("/", (req, res) => {
   res.send("Endpoints are working!");
 });

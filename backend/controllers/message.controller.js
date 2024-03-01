@@ -2,13 +2,52 @@ import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
 import { getReceiverSocketId, io } from "../socket/socket.js";
 import axios from "axios";
+import crypto from "crypto";
+// Define your secret key and encryption parameters
+const SECRET_KEY = "thanush"; // Replace with your secret key
+const KEY_LENGTH_BYTES = 32; // 256 bits
 
+// Derive the encryption key using PBKDF2
+const key = crypto.pbkdf2Sync(
+  SECRET_KEY,
+  "salt",
+  100,
+  KEY_LENGTH_BYTES,
+  "sha256"
+);
+
+// Encryption function using AES algorithm
+function encryptMessage(message, secretKey) {
+  const iv = crypto.randomBytes(16); // Generate a random initialization vector
+  const cipher = crypto.createCipheriv("aes-256-cbc", secretKey, iv);
+  let encryptedMessage = cipher.update(message, "utf-8", "hex");
+  encryptedMessage += cipher.final("hex");
+  return {
+    iv: iv.toString("hex"),
+    encryptedMessage,
+  };
+}
+
+// Decryption function
+function decryptMessage(encryptedMessage, secretKey, iv) {
+  const decipher = crypto.createDecipheriv(
+    "aes-256-cbc",
+    secretKey,
+    Buffer.from(iv, "hex")
+  );
+  let decryptedMessage = decipher.update(encryptedMessage, "hex", "utf-8");
+  decryptedMessage += decipher.final("utf-8");
+  return decryptedMessage;
+}
+
+// Controller to send a message
 export const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
     const { id: receiverId } = req.params;
     const senderId = req.user._id;
 
+    // Check if conversation exists, if not, create a new one
     let conversation = await Conversation.findOne({
       participants: { $all: [senderId, receiverId] },
     });
@@ -19,48 +58,56 @@ export const sendMessage = async (req, res) => {
       });
     }
 
+    // Encrypt the message
+    const { iv, encryptedMessage } = encryptMessage(message, key);
+
+    // Create and save the new message
     const newMessage = new Message({
       senderId,
       receiverId,
-      message,
+      iv,
+      encryptedMessage,
     });
 
-    if (newMessage) {
-      conversation.messages.push(newMessage._id);
-    }
+    await newMessage.save(); // Save message first
 
-    // await conversation.save();
-    // await newMessage.save();
+    // Update conversation with the new message
+    conversation.messages.push(newMessage._id);
+    await conversation.save(); // Save conversation with updated messages array
 
-    // this will run in parallel
-    await Promise.all([conversation.save(), newMessage.save()]);
-
-    // SOCKET IO FUNCTIONALITY WILL GO HERE
+    // Emit the new message to the receiver if online
     const receiverSocketId = getReceiverSocketId(receiverId);
     if (receiverSocketId) {
-      // io.to(<socket_id>).emit() used to send events to specific client
       io.to(receiverSocketId).emit("newMessage", newMessage);
     }
 
-    res.status(201).json(newMessage);
+    res.status(201).json(newMessage); // Return the new message
   } catch (error) {
     console.log("Error in sendMessage controller: ", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
 
+// Controller to get messages
 export const getMessages = async (req, res) => {
   try {
     const { id: userToChatId } = req.params;
     const senderId = req.user._id;
 
+    // Find conversation between sender and receiver
     const conversation = await Conversation.findOne({
       participants: { $all: [senderId, userToChatId] },
-    }).populate("messages"); // NOT REFERENCE BUT ACTUAL MESSAGES
+    }).populate("messages");
 
-    if (!conversation) return res.status(200).json([]);
+    if (!conversation) {
+      return res.status(404).json({ error: "Conversation not found" });
+    }
 
-    const messages = conversation.messages;
+    // Decrypt messages
+    const messages = conversation.messages.map((msg) => ({
+      ...msg.toJSON(),
+      message: decryptMessage(msg.encryptedMessage, key, msg.iv),
+    }));
 
     res.status(200).json(messages);
   } catch (error) {
@@ -68,7 +115,6 @@ export const getMessages = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
 // analyse single message and return positivity in them
 export const msg_sentiment = async (req, res) => {
   try {
@@ -106,5 +152,3 @@ export const msg_sentiment = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
-///
