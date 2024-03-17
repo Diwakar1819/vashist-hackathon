@@ -145,6 +145,40 @@ Role in the Project:
 - Electricity and Voltage Sensors: Measure energy consumption accurately, providing essential input for cost calculation.
 - Predefined Model: Calculates monthly electricity costs based on energy consumption data, providing users with insights into their electricity bills.
 
+## How to run locally 
+1. *Setup ESP32 Development Environment:*
+   - Install Arduino IDE and necessary ESP32 board drivers.
+   - Verify that you can successfully upload sketches to your ESP32 board.
+
+2. *Connect LEDs to ESP32:*
+   - Connect each LED to a separate GPIO pin on the ESP32, ensuring proper polarity and using current-limiting resistors.
+
+3. *Write Arduino Sketch:*
+   - Write an Arduino sketch to control the LEDs, defining GPIO pins and implementing functions to turn LEDs on and off.
+
+4. *Set Up Firebase:*
+   - Create a Firebase project and set up a Realtime Database.
+   - Obtain Firebase credentials (database URL, authentication key) for ESP32 communication.
+
+5. *Connect ESP32 to Firebase:*
+   - Use the Firebase ESP32 library to establish a connection between ESP32 and Firebase.
+   - Authenticate ESP32 with Firebase using obtained credentials.
+
+6. *Read and Write Data to Firebase:*
+   - Implement functions in the Arduino sketch to read and write data to Firebase, enabling remote control of LEDs.
+
+7. *Update LED States:*
+   - Modify the Arduino sketch to update LED states based on data received from Firebase.
+   - Ensure LEDs reflect the desired state indicated in the Firebase database.
+
+8. *Test and Debug:*
+   - Upload the Arduino sketch to ESP32 and test remote control of LEDs through Firebase.
+   - Debug any connectivity or LED control issues encountered during testing.
+
+9. *Refine and Iterate:*
+   - Refine the prototype based on testing feedback.
+   - Iterate on the design and functionality to improve reliability and user experience.
+
 # What's next ?
 Future Enhancements:
 1. Integration with Smart Home Devices: Incorporating compatibility with smart home devices to control energy usage remotely.
