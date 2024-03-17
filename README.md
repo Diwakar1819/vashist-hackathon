@@ -77,12 +77,15 @@ explain detailed steps to run your project locally , example to run a react appl
 - step 3 :  npm i
             nodemon server.js
 - step 4 : in backend  create file .env
-- step 5 : paste this in that file
+- step 5 : 1. Copy paste .env in backend
+	   2. Npm i
+	   3. Nodemon server.js
+- step 6 : paste this in that file
 	   PORT=3000
 	   MONGO_DB_URI=mongodb+srv://thanush:thanush@cluster0.li74ndu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 	   JWT_SECRET=thanush
  	   NODE_ENV=development
-- step 6 : cd frontend
+- step 7 : cd frontend
            npm i
            npm run dev
 
