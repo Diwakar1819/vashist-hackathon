@@ -67,7 +67,7 @@ Technical Stack:
 - Sentiment Analysis: Integrated natural language processing techniques for analyzing text and audio messages, providing valuable insights into emotional tone.
 - Personalized Dashboard: Implemented with React.js to visualize sentiment analysis results, allowing users to track and understand their emotional patterns over time.
 - Message Summarization: Automated summarization of long messages for quick comprehension, enhancing communication efficiency.
-![flowchart](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm5X9E8h0kftXOW2B9jORBskdXF12pFKOX_Q&usqp=CAU)
+![flowchart]((https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/35691ae6-8933-4165-80ce-337d79aa9ca0))
 
 ## Techstacks used 
 Reactjs(Front-end), Nodejs, Expressjs(Back-end), PostgreSQL(database)
