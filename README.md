@@ -72,8 +72,19 @@ Reactjs(Front-end), Nodejs, Expressjs(Back-end), PostgreSQL(database)
 
 ## How to run locally 
 explain detailed steps to run your project locally , example to run a react application 
-- step 1 : 
-
+- step 1 : open terminal
+- step 2 : cd backend
+- step 3 :  npm i
+            nodemon server.js
+- step 4 : in backend  create file .env
+- step 5 : paste this in that file
+	   PORT=3000
+	   MONGO_DB_URI=mongodb+srv://thanush:thanush@cluster0.li74ndu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+	   JWT_SECRET=thanush
+ 	   NODE_ENV=development
+- step 6 : cd frontend
+           npm i
+           npm run dev
 
 # What's next ?
 1.Integration of machine learning algorithms to enhance sentiment analysis accuracy and provide more nuanced insights into user interactions.
