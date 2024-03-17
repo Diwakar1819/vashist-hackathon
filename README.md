@@ -96,6 +96,8 @@ explain detailed steps to run your project locally , example to run a react appl
 ## Declaration
 We confirm that the project showcased here was either developed entirely during the hackathon or underwent significant updates within the hackathon timeframe. We understand that if any plagiarism from online sources is detected, our project will be disqualified, and our participation in the hackathon will be revoked.
 
+
+<h1> ------------------------------------------------------------------------------</h1>
 <h1 align="center" style="border-bottom: none">
     <b>
         <a href="https://github.com/Diwakar1819/vashist-hackathon"> ENERGY TARIFF SYSTEM </a><br>
@@ -104,7 +106,7 @@ We confirm that the project showcased here was either developed entirely during 
 </h1>
 
 # [`Demo video link `](https://youtu.be/LMi-X51Y_K0?si=3hq8c1hwJB9Zh1VM)
-
+<h3>ENEGRGY TARRIF SYSTEM</h3>
 Our project aims to revolutionize energy management in households by implementing an innovative energy tariff system. By utilizing ESP32 microcontrollers, Firebase database, and electricity and voltage sensors, we accurately monitor energy consumption by individual components within a house. The system employs a predefined model to calculate monthly electricity costs, offering users detailed insights into their energy usage patterns and facilitating informed decisions for energy conservation and cost optimization.
 
 ## Team Details
@@ -142,8 +144,6 @@ Role in the Project:
 - Firebase: Stores energy consumption data and user information securely, enabling real-time access and analysis.
 - Electricity and Voltage Sensors: Measure energy consumption accurately, providing essential input for cost calculation.
 - Predefined Model: Calculates monthly electricity costs based on energy consumption data, providing users with insights into their electricity bills.
-
-
 
 # What's next ?
 Future Enhancements:
