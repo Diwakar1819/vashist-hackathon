@@ -1,6 +1,6 @@
 <h1 align="center" style="border-bottom: none">
     <b>
-        <a href="https://www.google.com"> NANBAN App </a><br>
+        <a href="https://github.com/Diwakar1819/vashist-hackathon"> NANBAN App </a><br>
     </b>
     ⭐ Your's daily companion ⭐ <br>
 </h1>
