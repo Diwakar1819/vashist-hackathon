@@ -44,12 +44,10 @@ Team number : VH223
 | Faiz Mohammed A | faizmohammedfire@gmail.com |
 
 <div style="display: flex; flex-wrap: wrap;">
-    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/730377da-23ed-455c-872b-10a0149d3689" alt="Image 1" style="width: 30%; margin: 5px;">
-    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/54f1813a-d14e-4a47-a25b-efbf6a1fde6f" alt="Image 2" style="width: 30%; margin: 5px;">
-    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/8e2c6df8-9948-465b-97a2-293ec3151e3a" alt="Image 3" style="width: 30%; margin: 5px;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEwduQ50DEm_tr94tfGWHqAYzzvjb_5oS6ULmejCN2pBlolGfTv8wTwaa64fnt1GThiDc" alt="Image 3" style="width: 30%; margin: 5px;">
-       <img src="https://static.vecteezy.com/system/resources/previews/013/688/865/non_2x/modern-color-and-geometric-banner-design-template-on-the-background-of-the-mobile-phone-mobile-modern-poster-marketing-special-offer-promotion-smartphone-mockup-vector.jpg" alt="Image 1" style="width: 30%; margin: 5px;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSECH9uhvdGq0EP6QqG8lzAyjz1F-6V5RyMZrjBGmoIbP5diPgG53mWePJ9RlWVbJuVWCo&usqp=CAU" alt="Image 2" style="width: 30%; margin: 5px;">
+    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/730377da-23ed-455c-872b-10a0149d3689" alt="Image 1" style="width: 40%; margin: 20px;">
+    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/54f1813a-d14e-4a47-a25b-efbf6a1fde6f" alt="Image 2" style="width: 40%; margin: 20px;">
+    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/8e2c6df8-9948-465b-97a2-293ec3151e3a" alt="Image 3" style="width: 40%; margin: 20px;">
+    <img src="https://github.com/Diwakar1819/vashist-hackathon/assets/153829103/5900f8ec-125f-4beb-8873-5dbb48370dad" alt="Image 3" style="width: 40%; margin: 20px;">
 </div>
 
 ## Problem statement 
@@ -74,10 +72,7 @@ Reactjs(Front-end), Nodejs, Expressjs(Back-end), PostgreSQL(database)
 
 ## How to run locally 
 explain detailed steps to run your project locally , example to run a react application 
-- step 1 : clone the repo 
-
-npm install
-npm start
+- step 1 : 
 
 
 # What's next ?
